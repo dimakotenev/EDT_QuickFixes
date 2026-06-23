@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <feature id="com.quickfixes.edt.feature" version="0.0.0">
+        <category name="quickfixes"/>
+    </feature>
+
+    <category-def name="quickfixes" label="Quick Fixes for 1C:EDT">
+        <description>
+            Quick Fixes plug-in for 1C:EDT — helper operations on modules.
+        </description>
+    </category-def>
+</site>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="Quick Fixes Target (local EDT 2026.1)" sequenceNumber="1">
+  <locations>
+    <!-- Resolve all dependencies against the locally installed 1C:EDT (no network download). -->
+    <location path="C:\Program Files\1C\1CE\components\1c-edt-2026.1.1+1-x86_64\plugins" type="Directory"/>
+  </locations>
+</target>

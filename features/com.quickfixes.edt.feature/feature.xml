@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+    id="com.quickfixes.edt.feature"
+    label="Quick Fixes for 1C:EDT"
+    version="1.0.0"
+    provider-name="Quick Fixes">
+
+    <description>
+        Quick Fixes — helper operations on 1C:EDT modules.
+    </description>
+
+    <plugin
+        id="com.quickfixes.edt"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        unpack="false"/>
+
+</feature>

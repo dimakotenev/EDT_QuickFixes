@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.commands">
+      <category
+            id="com.quickfixes.edt.commands.category"
+            name="Quick Fixes"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.moveMethodsToRegions"
+            name="Перенести методы в корректные области"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.createRegions"
+            name="Создать стандартные области"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.reorderRegions"
+            name="Расставить области по порядку"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.fixVariableNames"
+            name="Имена переменных с заглавной буквы"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.deleteUnused"
+            name="Удалить неиспользуемые методы и переменные…"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.deleteBlankLines"
+            name="Удалить пустые строки"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.fixFormSelfReference"
+            name="Исправление ошибки ЭтаФорма"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.fixRedundantSelfReference"
+            name="Исправление излишнего обращения к ЭтотОбъект"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.fixMissingPragma"
+            name="Исправление отсутствующих директив на форме"/>
+      <command
+            categoryId="com.quickfixes.edt.commands.category"
+            id="com.quickfixes.edt.commands.fixAccessibility"
+            name="Исправление доступности с толстого клиента"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            class="com.quickfixes.edt.handlers.MoveMethodsToRegionsHandler"
+            commandId="com.quickfixes.edt.commands.moveMethodsToRegions"/>
+      <handler
+            class="com.quickfixes.edt.handlers.CreateRegionsHandler"
+            commandId="com.quickfixes.edt.commands.createRegions"/>
+      <handler
+            class="com.quickfixes.edt.handlers.ReorderRegionsHandler"
+            commandId="com.quickfixes.edt.commands.reorderRegions"/>
+      <handler
+            class="com.quickfixes.edt.handlers.FixVariableNamesHandler"
+            commandId="com.quickfixes.edt.commands.fixVariableNames"/>
+      <handler
+            class="com.quickfixes.edt.handlers.DeleteUnusedHandler"
+            commandId="com.quickfixes.edt.commands.deleteUnused"/>
+      <handler
+            class="com.quickfixes.edt.handlers.DeleteBlankLinesHandler"
+            commandId="com.quickfixes.edt.commands.deleteBlankLines"/>
+      <handler
+            class="com.quickfixes.edt.handlers.FixFormSelfReferenceHandler"
+            commandId="com.quickfixes.edt.commands.fixFormSelfReference"/>
+      <handler
+            class="com.quickfixes.edt.handlers.FixRedundantSelfReferenceHandler"
+            commandId="com.quickfixes.edt.commands.fixRedundantSelfReference"/>
+      <handler
+            class="com.quickfixes.edt.handlers.FixMissingPragmaHandler"
+            commandId="com.quickfixes.edt.commands.fixMissingPragma"/>
+      <handler
+            class="com.quickfixes.edt.handlers.FixAccessibilityHandler"
+            commandId="com.quickfixes.edt.commands.fixAccessibility"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus">
+      <!-- Top-level "Quick Fixes" menu in the main menu bar, grouped into subgroups -->
+      <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu id="com.quickfixes.edt.menus.main" label="Quick Fixes">
+            <menu id="com.quickfixes.edt.menus.main.regions" label="Исправление областей">
+               <command commandId="com.quickfixes.edt.commands.createRegions" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.reorderRegions" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.moveMethodsToRegions" style="push"/>
+            </menu>
+            <menu id="com.quickfixes.edt.menus.main.variables" label="Исправление переменных">
+               <command commandId="com.quickfixes.edt.commands.fixVariableNames" style="push"/>
+            </menu>
+            <menu id="com.quickfixes.edt.menus.main.legacy" label="Исправление устаревших конструкций">
+               <command commandId="com.quickfixes.edt.commands.fixFormSelfReference" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.fixRedundantSelfReference" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.fixMissingPragma" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.fixAccessibility" style="push"/>
+            </menu>
+            <menu id="com.quickfixes.edt.menus.main.cleanup" label="Удаление неиспользуемого">
+               <command commandId="com.quickfixes.edt.commands.deleteUnused" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.deleteBlankLines" style="push"/>
+            </menu>
+         </menu>
+      </menuContribution>
+
+      <!-- Same structure in the BSL module editor context menu -->
+      <menuContribution locationURI="popup:#BslEditorContext?after=additions">
+         <menu id="com.quickfixes.edt.menus.popup" label="Quick Fixes">
+            <menu id="com.quickfixes.edt.menus.popup.regions" label="Исправление областей">
+               <command commandId="com.quickfixes.edt.commands.createRegions" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.reorderRegions" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.moveMethodsToRegions" style="push"/>
+            </menu>
+            <menu id="com.quickfixes.edt.menus.popup.variables" label="Исправление переменных">
+               <command commandId="com.quickfixes.edt.commands.fixVariableNames" style="push"/>
+            </menu>
+            <menu id="com.quickfixes.edt.menus.popup.legacy" label="Исправление устаревших конструкций">
+               <command commandId="com.quickfixes.edt.commands.fixFormSelfReference" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.fixRedundantSelfReference" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.fixMissingPragma" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.fixAccessibility" style="push"/>
+            </menu>
+            <menu id="com.quickfixes.edt.menus.popup.cleanup" label="Удаление неиспользуемого">
+               <command commandId="com.quickfixes.edt.commands.deleteUnused" style="push"/>
+               <command commandId="com.quickfixes.edt.commands.deleteBlankLines" style="push"/>
+            </menu>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
