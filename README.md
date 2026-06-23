@@ -35,6 +35,7 @@
 5. Перезапустите EDT, когда он это предложит.
 
 ---
+<img width="748" height="183" alt="image" src="https://github.com/user-attachments/assets/6557648d-044e-422f-a5f6-7fcfc8da789b" />
 
 ## Что делает
 
